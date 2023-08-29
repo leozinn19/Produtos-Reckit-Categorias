@@ -17,7 +17,7 @@ from services.fabricante_service import train_test_fabricante, process_fabricant
 from services.fabricante_varejista_service import train_test_fabricante_varejista, process_fabricante_varejista
 from services.dcr_oferta_service import train_test_dcr_oferta, process_dcr_oferta
 from services.desc_e_service import train_test_desc_e, process_desc_e
-from services.tamanho_loreal_service import train_test_tamanho_loreal, process_tamanho_loreal
+from services.tamanho_service import train_test_tamanho, process_tamanho
 
 # Converter a base xlsx para csv:
 xlsx_to_csv('../bases/PURIFICADORES.xlsx', '../bases/BASE_CONVERTIDA.csv')
@@ -67,7 +67,7 @@ vectorizer_desc_e, random_forest_desc_e, accuracy_desc_e = train_test_desc_e(
 print('Processo 11 feito...')
 
 print('Processo 12 feito...')
-vectorizer_tamanho, random_forest_tamanho, accuracy_tamanho = train_test_tamanho_loreal(
+vectorizer_tamanho, random_forest_tamanho, accuracy_tamanho = train_test_tamanho(
    dataframe_tamanho)
 print('Processo 1 feito...')
 vectorizer_tamanho_range, random_forest_tamanho_range, accuracy_tamanho_range = train_test_tamanho_range(
