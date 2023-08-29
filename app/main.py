@@ -17,7 +17,6 @@ from services.fabricante_service import train_test_fabricante, process_fabricant
 from services.fabricante_varejista_service import train_test_fabricante_varejista, process_fabricante_varejista
 from services.dcr_oferta_service import train_test_dcr_oferta, process_dcr_oferta
 from services.desc_e_service import train_test_desc_e, process_desc_e
-from services.se_oferta_service import train_test_se_oferta, process_se_oferta
 from services.tamanho_loreal_service import train_test_tamanho_loreal, process_tamanho_loreal
 
 # Converter a base xlsx para csv:
@@ -66,8 +65,7 @@ print('Processo 10 feito...')
 vectorizer_desc_e, random_forest_desc_e, accuracy_desc_e = train_test_desc_e(
     dataframe_existing)
 print('Processo 11 feito...')
-vectorizer_se_oferta, random_forest_se_oferta, accuracy_se_oferta = train_test_se_oferta(
-   dataframe_existing)
+
 print('Processo 12 feito...')
 vectorizer_tamanho, random_forest_tamanho, accuracy_tamanho = train_test_tamanho_loreal(
    dataframe_tamanho)
@@ -88,7 +86,7 @@ acurracy('FABRICANTE', accuracy_fabricante)
 acurracy('FABRICANTE_VAREJISTA', accuracy_fabricante_varejista)
 acurracy('DCR_OFERTA', accuracy_dcr_oferta)
 acurracy('DESC_E', accuracy_desc_e)
-acurracy('SE_OFERTA', accuracy_se_oferta)
+
 acurracy('TAMANHO', accuracy_tamanho)
 acurracy('TAMANHO_RANGE', accuracy_tamanho_range)
 
@@ -135,8 +133,7 @@ acurracy('TAMANHO_RANGE', accuracy_tamanho_range)
 #    dataframe_new, vectorizer_dcr_oferta, random_forest_dcr_oferta)
 # processed_dataframe_new = process_desc_e(
 #    dataframe_new, vectorizer_desc_e, random_forest_desc_e)
-# processed_dataframe_new = process_se_oferta(
-#    dataframe_new, vectorizer_se_oferta, random_forest_se_oferta)
+
 # processed_dataframe_new = process_tamanho_loreal(
 #    dataframe_new, vectorizer_tamanho, random_forest_tamanho)
 # processed_dataframe_new = process_tamanho_range(
