@@ -11,7 +11,7 @@ def train_test_tamanho_range(dataframe_existing):
     dataframe_existing['tamanho_medida'].fillna('', inplace=True)
 
     # MARCA PARA tamanho_range
-    X = vectorizer.fit_transform(dataframe_existing['tamanho_unidade'])
+    X = vectorizer.fit_transform(dataframe_existing['tamanho_medida'])
     y = dataframe_existing['tamanho_range']
     X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2,
                                                         random_state=42)
@@ -25,11 +25,10 @@ def train_test_tamanho_range(dataframe_existing):
 def process_tamanho_range(dataframe_new, vectorizer, random_forest):
 
     # Prever os 'tamanho_ranges'
-    X_new = vectorizer.transform(dataframe_new['tamanho_unidade'])
+    X_new = vectorizer.transform(dataframe_new['tamanho_medida'])
     predict = random_forest.predict(X_new)
 
     # Atualizar coluna 'tamanho_range'
     dataframe_new['tamanho_range'] = predict
-    dataframe_new['desc_b'] = dataframe_new['tamanho_range']
 
     return dataframe_new
