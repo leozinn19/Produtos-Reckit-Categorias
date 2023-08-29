@@ -21,7 +21,7 @@ from services.se_oferta_service import train_test_se_oferta, process_se_oferta
 from services.tamanho_loreal_service import train_test_tamanho_loreal, process_tamanho_loreal
 
 # Converter a base xlsx para csv:
-xlsx_to_csv('../bases/BASE.xlsx', '../bases/PURIFICADORES.xlsx')
+xlsx_to_csv('../bases/PURIFICADORES.xlsx', '../bases/BASE_CONVERTIDA.csv')
 
 # Ler os dados existentes do arquivo CSV
 dataframe_existing = pd.read_csv('../bases/BASE_CONVERTIDA.csv')
@@ -66,15 +66,15 @@ print('Processo 10 feito...')
 vectorizer_desc_e, random_forest_desc_e, accuracy_desc_e = train_test_desc_e(
     dataframe_existing)
 print('Processo 11 feito...')
-# vectorizer_se_oferta, random_forest_se_oferta, accuracy_se_oferta = train_test_se_oferta(
-#    dataframe_existing)
-# print('Processo 12 feito...')
-# vectorizer_tamanho, random_forest_tamanho, accuracy_tamanho = train_test_tamanho_loreal(
-#    dataframe_tamanho)
-# print('Processo 1 feito...')
-# vectorizer_tamanho_range, random_forest_tamanho_range, accuracy_tamanho_range = train_test_tamanho_range(
-#    dataframe_existing)
-# print('Processo 12 feito...')
+vectorizer_se_oferta, random_forest_se_oferta, accuracy_se_oferta = train_test_se_oferta(
+   dataframe_existing)
+print('Processo 12 feito...')
+vectorizer_tamanho, random_forest_tamanho, accuracy_tamanho = train_test_tamanho_loreal(
+   dataframe_tamanho)
+print('Processo 1 feito...')
+vectorizer_tamanho_range, random_forest_tamanho_range, accuracy_tamanho_range = train_test_tamanho_range(
+   dataframe_existing)
+print('Processo 12 feito...')
 
 # Mostrar a acuracia dos classificadores
 acurracy('COD_CATEGORIA', accuracy_cod_categoria)
@@ -88,9 +88,9 @@ acurracy('FABRICANTE', accuracy_fabricante)
 acurracy('FABRICANTE_VAREJISTA', accuracy_fabricante_varejista)
 acurracy('DCR_OFERTA', accuracy_dcr_oferta)
 acurracy('DESC_E', accuracy_desc_e)
-# acurracy('SE_OFERTA', accuracy_se_oferta)
-# acurracy('TAMANHO', accuracy_tamanho)
-# acurracy('TAMANHO_RANGE', accuracy_tamanho_range)
+acurracy('SE_OFERTA', accuracy_se_oferta)
+acurracy('TAMANHO', accuracy_tamanho)
+acurracy('TAMANHO_RANGE', accuracy_tamanho_range)
 
 # Calcular a frequência das palavras
 # frequencies = X.sum(axis=0)
